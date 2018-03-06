@@ -20,11 +20,13 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "redux-devtools": "^3.4.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "material-ui": "^0.20.0",
+    "react-redux": "^5.0.7",
     "redux": "^3.7.2"
   }
 }
