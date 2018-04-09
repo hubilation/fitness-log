@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+.set-row {
+  display: flex;
+}
+
+.rep-input {
+  width: 250px;
+  height: 250px;
+  flex: initial;
+  border: 1px solid black;
+}
