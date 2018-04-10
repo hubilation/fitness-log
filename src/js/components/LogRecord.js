@@ -1,7 +1,9 @@
 import React from "react";
 import TextField from "material-ui/TextField";
+import styled from "styled-components";
 import Cell from "./Cell";
-import SetResult from './SetResult';
+import ExerciseResults from "./ExerciseResults";
+import ExerciseDescription from "./ExerciseDescription";
 
 const flexContainerStyle = {
   display: "flex",
@@ -18,55 +20,50 @@ const generateCells = (setCount, repCount, targetWeight) => {
   return cells;
 };
 
-const logContainerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  flexFlow: "column"
-};
+const RecordContents = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 900px;
+  flex-flow: column;
+  flex: initial;
+`;
 
-const LogRecord = () => (
-  <div>
-    <div style={logContainerStyle}>
-      <div style={{ width: "900px", display: "flex" }}>
-        <div
-          style={{
-            fontSize: "48px",
-            flex: 1,
-            display: "flex",
-            flexFlow: "column",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <div>Bench Press</div>
-          <div>3x 8-12</div>
-        </div>
-        <div
-          style={{
-            flex: 1,
-            fontSize: "140px",
-            textAlign: "center",
-            fontWeight: 700
-          }}
-        >
-          135
-        </div>
-      </div>
-      <div
-        style={{
-          width: "900px",
-          display: "flex",
-          flexFlow: "column",
-          justifyContent: "center"
-        }}
-      >
-        <SetResult />
-        <SetResult />
-        <SetResult />
-      </div>
-    </div>
-  </div>
-);
+const OuterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+const Bookend = styled.div`
+  flex: 1;
+`;
+
+class LogRecord extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        resultsExpanded: false
+    }
+    this.handleDescriptionExpandClick = this.handleDescriptionExpandClick.bind(this);
+  };
+
+  handleDescriptionExpandClick() {
+      this.setState({resultsExpanded: !this.state.resultsExpanded});
+  }
+
+  render() {
+    return (
+        <OuterWrapper>
+          <Bookend />
+          <RecordContents>
+            <ExerciseDescription handleClick={this.handleDescriptionExpandClick} isExpanded={this.state.resultsExpanded} />
+            {this.state.resultsExpanded ? <ExerciseResults /> : ''}
+          </RecordContents>
+          <Bookend />
+        </OuterWrapper>
+      );
+  }
+
+};
 
 export default LogRecord;

@@ -6,6 +6,7 @@ import LogRecord from "./components/LogRecord";
 const App = () => (
   <MuiThemeProvider>
     <LogRecord />
+    <LogRecord />
   </MuiThemeProvider>
 );
 
