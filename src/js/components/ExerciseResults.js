@@ -9,10 +9,26 @@ const ResultContainer = styled.div`
   justify-content: center;
 `;
 
+//TODO: create shape of data, updates should probably be immediately saved to server in case of reload, at this point data will probably want to look as follows:
+var data = [
+  {
+    reps: 0,
+    weight: 135
+  },
+  {
+    reps: 0,
+    weight: 135
+  },
+  {
+    reps: 0,
+    weight: 135
+  },
+];
+
 const ExerciseResults = () => {
   return (
     <ResultContainer>
-      <SetResult />
+      <SetResult reps={10} weight={135}/>
       <SetResult />
       <SetResult />
     </ResultContainer>

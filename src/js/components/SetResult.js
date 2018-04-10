@@ -1,43 +1,45 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
-const rowStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: '10px 0',
-    width: '100%'
-  };
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+`;
 
-const repStyle = {
-    width: "250px",
-    height: "150px",
-    border: "1px solid black",
-    margin: "0 auto"
-  };
+const RepContainer = styled.div`
+  flex: 1;
+  text-align: center;
+`;
 
-const dividerStyle = {
-    height: '100px',
-    width: '1px',
-    border: '1px solid black',
-    flex: 'initial',
-    justifyContent: 'center'
-}
+const RepInput = styled.input`
+  width: 250px;
+  height: 150px;
+  border: 1px solid black;
+  margin: 0 auto;
+  font-size: 75px;
+  text-align: center;
+`;
 
-const SetResult = ()=>{
-    return (
-        <div
-          style={rowStyle}
-        >
-          <div style={{ flex: 1 }}>
-            <div
-              style={repStyle}
-            />
-          </div>
-          <div style={{ flex: 1, fontSize: "75px", textAlign: "center" }}>
-            135
-          </div>
-        </div>
-    )
-}
+const Weight = styled.div`
+  flex: 1;
+  font-size: 75px;
+  text-align: center;
+`;
+
+//updateField should be a redux thing, take an exercise id, a set id, and a field name, plus the new value
+
+const SetResult = ({reps, weight, updateField}) => {
+  return (
+    <Container>
+      <RepContainer>
+        <RepInput value={reps} onChange={updateField} />
+      </RepContainer>
+      <Weight>{weight}</Weight>
+    </Container>
+  );
+};
 
 export default SetResult;

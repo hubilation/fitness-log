@@ -1,7 +1,6 @@
 import React from "react";
 import TextField from "material-ui/TextField";
 import styled from "styled-components";
-import Cell from "./Cell";
 import ExerciseResults from "./ExerciseResults";
 import ExerciseDescription from "./ExerciseDescription";
 
