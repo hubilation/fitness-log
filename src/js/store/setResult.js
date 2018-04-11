@@ -1,4 +1,4 @@
-const UPDATE_FIELD = "set/UPDATE_FIELD";
+const UPDATE_FIELD = "setResult/UPDATE_FIELD";
 
 const update = (state, mutations) => Object.assign({}, state, mutations);
 
