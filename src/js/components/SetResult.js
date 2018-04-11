@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { updateAction } from "../store/setResult";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -29,17 +31,34 @@ const Weight = styled.div`
   text-align: center;
 `;
 
-//updateField should be a redux thing, take an exercise id, a set id, and a field name, plus the new value
+class SetResult extends React.Component {
+  constructor(props){
+    super(props);
 
-const SetResult = ({reps, weight, updateField}) => {
-  return (
-    <Container>
-      <RepContainer>
-        <RepInput value={reps} onChange={updateField} />
-      </RepContainer>
-      <Weight>{weight}</Weight>
-    </Container>
-  );
+    this.updateReps = this.updateReps.bind(this);
+    this.updateWeight = this.updateReps.bind(this);
+  };
+
+  updateReps(event){
+    this.props.updateField('reps', event.target.value);
+  }
+
+  updateWeight(event){
+    this.props.updateField('weight', event.target.value);
+  }
+
+  render(){
+    return (
+      <Container>
+        <RepContainer>
+          <RepInput value={this.props.setResult.reps} onChange={this.updateReps}/>
+        </RepContainer>
+        <Weight>{this.props.setResult.weight}</Weight>
+      </Container>
+    );
+  }
+
 };
 
 export default SetResult;
+

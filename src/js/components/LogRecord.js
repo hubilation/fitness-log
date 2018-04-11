@@ -50,6 +50,7 @@ class LogRecord extends React.Component {
       this.setState({resultsExpanded: !this.state.resultsExpanded});
   }
 
+  //maybe this can become something we pass children to, it can behave differently based on the exercise type (count, time, etc)
   render() {
     return (
         <OuterWrapper>

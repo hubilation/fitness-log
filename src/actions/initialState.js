@@ -23,6 +23,7 @@ export const denormalizedState = {
                 reps: [8,12], //we can have multiple if we want a range, e.g. "Between 8 and 12 reps"
                 repType: 'count', //time, burnout other options
                 weight: 165,
+                completed: false,
                 log: [
                     {
                         weight: 165,

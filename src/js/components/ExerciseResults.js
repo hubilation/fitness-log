@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import SetResult from "./SetResult";
 
 const ResultContainer = styled.div`
@@ -9,30 +10,18 @@ const ResultContainer = styled.div`
   justify-content: center;
 `;
 
-//TODO: create shape of data, updates should probably be immediately saved to server in case of reload, at this point data will probably want to look as follows:
-var data = [
-  {
-    reps: 0,
-    weight: 135
-  },
-  {
-    reps: 0,
-    weight: 135
-  },
-  {
-    reps: 0,
-    weight: 135
-  },
-];
+const mapStateToProps = state => ({
+  setResults: state
+});
 
-const ExerciseResults = () => {
+const ExerciseResults = props => {
   return (
     <ResultContainer>
-      <SetResult reps={10} weight={135}/>
-      <SetResult />
-      <SetResult />
+      {props.setResults.map(value => (
+        <SetResult updateField={() => {}} setResult={value} />
+      ))}
     </ResultContainer>
   );
 };
 
-export default ExerciseResults;
+export default connect(mapStateToProps)(ExerciseResults);
